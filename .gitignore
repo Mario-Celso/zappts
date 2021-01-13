@@ -9,5 +9,4 @@ database/*.sqlite
 
 .editorconfig
 .idea
-.env
 README-ex.md
