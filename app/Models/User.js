@@ -6,14 +6,6 @@ const Model = use('Model')
 /** @type {import('@adonisjs/framework/src/Hash')} */
 const Hash = use('Hash')
 
-/**
- * User Roles
- * 1 = manager
- * 2 = user company
- * 3 = physiotherapist
- * 4 = patient
- * */
-
 class User extends Model {
   static boot () {
     super.boot()

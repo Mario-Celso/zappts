@@ -26,7 +26,8 @@
     "@adonisjs/validator": "^5.0.6",
     "adonis-swagger": "^1.2.9",
     "pg": "^8.3.0",
-    "sqlite3": "^5.0.1"
+    "sqlite3": "^5.0.1",
+    "swagger-jsdoc": "^6.0.1"
   },
   "autoload": {
     "App": "./app"

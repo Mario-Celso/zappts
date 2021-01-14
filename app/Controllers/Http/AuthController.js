@@ -4,6 +4,36 @@ const Database = use('Database')
 
 class AuthController {
 
+ /**
+ * @swagger
+ * definitions:
+ *   User:
+ *     properties:
+ *       username:
+ *         type: string
+ *       password:
+ *         type: string
+ */
+/**
+ * @swagger
+ * /register:
+ *   post:
+ *     tags:
+ *       - Users
+ *     description: Criar novo usuário
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: user
+ *         description: Json
+ *         in: body
+ *         required: true
+ *         schema:
+ *           $ref: '#/definitions/User'
+ *     responses:
+ *       200:
+ *         description: Cadastro Efetuado com sucesso
+ */
   async register( { response,request } ){
     //create user by request
     const data = request.only(['username', 'password']);
@@ -22,6 +52,26 @@ class AuthController {
       }
   }
 
+  /**
+ * @swagger
+ * /login:
+ *   post:
+ *     tags:
+ *       - Users
+ *     description: Login
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: user
+ *         description: Json
+ *         in: body
+ *         required: true
+ *         schema:
+ *           $ref: '#/definitions/User'
+ *     responses:
+ *       200:
+ *         description:  
+ */
   async authenticate( { request, auth } ){
     const {username, password } = request.all();
 

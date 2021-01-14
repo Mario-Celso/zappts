@@ -20,6 +20,29 @@ class ChristmasLettersController {
    * @param {Response} ctx.response
    */
 
+    /**
+ * @swagger
+ * definitions:
+ *   ChristmasLetters:
+ *     properties:
+ *       title:
+ *         type: string
+ *       text:
+ *         type: string
+ */
+/**
+ * @swagger
+ * /christmasLetter:
+ *   get:
+ *     tags:
+ *       - ChristmasLetters
+ *     description: Get das cartas
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: Lista de cartas se for o papai noel aparecem todas, se for um usuario comum aparece apenas as que ele enviou
+ */
   async index ({ request, response, auth }) {
    
     //admin role = 1
@@ -31,6 +54,27 @@ class ChristmasLettersController {
 
   }
 
+
+  /**
+ * @swagger
+ * /christmasLetter:
+ *   post:
+ *     tags:
+ *       - ChristmasLetters
+ *     description: Criar carta se for usuario comum, papai noel apenas le cartas
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: christmas_letters
+ *         description: Json
+ *         in: body
+ *         required: true
+ *         schema:
+ *           $ref: '#/definitions/ChristmasLetters'
+ *     responses:
+ *       200:
+ *         description: Carta enviada com sucesso!
+ */
   /**
    * Create/save a new christmasLetters.
    * POST christmasLetters
@@ -62,7 +106,21 @@ class ChristmasLettersController {
   }
 
 
-
+/**
+ * @swagger
+ * /christmasLetter/{id}:
+ *   get:
+ *     tags:
+ *       - ChristmasLetters
+ *     description: Detalhes de uma carta pelo id
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: Detalhes de uma carta especifica
+ *         schema:
+ *           $ref: '#/definitions/ChristmasLetters'
+ */
   /**
    * Display a single christmasLetters.
    * GET christmasLetters/:id
@@ -107,7 +165,26 @@ class ChristmasLettersController {
   }
 
 
-
+ /**
+ * @swagger
+ * /christmasLetter/{id}:
+ *   patch:
+ *     tags:
+ *       - ChristmasLetters
+ *     description: Apenas usuarios atualizam a carta, e apenas suas cartas
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: christmas_letters
+ *         description: Json
+ *         in: body
+ *         required: true
+ *         schema:
+ *           $ref: '#/definitions/ChristmasLetters'
+ *     responses:
+ *       200:
+ *         description: Carta atualizada com sucesso!
+ */
   /**
    * Update christmasLetters details.
    * PUT or PATCH christmasLetters/:id
