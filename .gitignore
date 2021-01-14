@@ -5,8 +5,9 @@ node_modules
 tmp
 
 # The development sqlite file
-database/*.sqlite
 
 .editorconfig
 .idea
 README-ex.md
+
+package-lock.json
